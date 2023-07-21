@@ -10,7 +10,8 @@ config_version=4
 
 [application]
 
-config/name="TestWork2"
+config/name="Quest 2,3,4"
+run/main_scene="res://content/main_scene/main_scene.tscn"
 config/icon="res://icon.png"
 
 [gui]

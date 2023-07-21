@@ -106,7 +106,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 123, 103 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "№ 4"
+text = "Кнопка № 4"
 
 [node name="ButtonRoot1" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
 margin_left = 271.0
@@ -121,7 +121,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 121, 108 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "№ 1"
+text = "Кнопка № 1"
 
 [node name="ButtonRoot3" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
 margin_top = 248.0
@@ -137,7 +137,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 121, 111 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "№ 3"
+text = "Кнопка № 3"
 
 [node name="ButtonRoot2" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
 margin_left = 271.0
@@ -155,7 +155,7 @@ anchor_bottom = 1.0
 rect_pivot_offset = Vector2( 116, 107 )
 size_flags_horizontal = 3
 size_flags_vertical = 3
-text = "№ 2"
+text = "Кнопка № 2"
 
 [node name="TweenButtonsEffect" type="Tween" parent="."]
 
