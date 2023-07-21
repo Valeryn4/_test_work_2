@@ -1,0 +1,161 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://content/sphere_and_fire_scene/fire/fire_effect.tscn" type="PackedScene" id=1]
+[ext_resource path="res://content/gui/main_theme.theme" type="Theme" id=2]
+[ext_resource path="res://content/sphere_and_fire_scene/sphere/sphere.tscn" type="PackedScene" id=3]
+[ext_resource path="res://content/sphere_and_fire_scene/sphere_and_firce_scene.gd" type="Script" id=4]
+
+[sub_resource type="Environment" id=1]
+fog_enabled = true
+fog_color = Color( 0.0784314, 0.0784314, 0.0784314, 1 )
+fog_depth_begin = 0.1
+fog_depth_end = 18.1
+fog_transmit_enabled = true
+glow_enabled = true
+
+[sub_resource type="PlaneMesh" id=2]
+size = Vector2( 200, 200 )
+
+[sub_resource type="OpenSimplexNoise" id=3]
+seed = 6
+persistence = 1.0
+lacunarity = 4.0
+
+[sub_resource type="NoiseTexture" id=4]
+seamless = true
+noise = SubResource( 3 )
+
+[sub_resource type="SpatialMaterial" id=5]
+albedo_color = Color( 0.309804, 0.85098, 0.0823529, 1 )
+albedo_texture = SubResource( 4 )
+uv1_scale = Vector3( 0.5, 0.5, 0.5 )
+uv1_triplanar = true
+
+[sub_resource type="CylinderMesh" id=9]
+
+[sub_resource type="CylinderMesh" id=10]
+top_radius = 0.2
+bottom_radius = 0.2
+radial_segments = 8
+rings = 2
+
+[sub_resource type="Animation" id=7]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=8]
+resource_name = "play"
+length = 10.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 10 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector3( 0, 0, 0 ), Vector3( 0, 360, 0 ) ]
+}
+
+[node name="SphereFire" type="Spatial"]
+script = ExtResource( 4 )
+back_path = "res://content/main_scene/main_scene.tscn"
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="."]
+environment = SubResource( 1 )
+
+[node name="MeshInstance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = SubResource( 5 )
+
+[node name="MeshInstance" type="MeshInstance" parent="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.866566, 0 )
+mesh = SubResource( 9 )
+
+[node name="Brick" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 0.171964, 0.985103, 0, -0.985103, 0.171964, 0.0463314, 1.01087, 0.995013 )
+mesh = SubResource( 10 )
+
+[node name="Brick2" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( 0.711364, 0.692354, -0.12086, 0, 0.171964, 0.985103, 0.702824, -0.700767, 0.122329, -0.66636, 1.01087, 0.740379 )
+mesh = SubResource( 10 )
+
+[node name="Brick3" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( 0.013299, 0.985016, -0.171948, 0, 0.171964, 0.985103, 0.999912, -0.0131009, 0.00228695, -0.994309, 1.01087, 0.05956 )
+mesh = SubResource( 10 )
+
+[node name="Brick4" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( -0.713422, 0.690296, -0.120501, 0, 0.171964, 0.985103, 0.700735, 0.702794, -0.122683, -0.730294, 1.01087, -0.677398 )
+mesh = SubResource( 10 )
+
+[node name="Brick5" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( -0.99949, 0.0314411, -0.00548849, 0, 0.171964, 0.985103, 0.0319166, 0.984601, -0.171876, -0.0780652, 1.01087, -0.993028 )
+mesh = SubResource( 10 )
+
+[node name="Brick6" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( -0.673296, -0.728358, 0.127145, 0, 0.171964, 0.985103, -0.739373, 0.663266, -0.115782, 0.704491, 1.01087, -0.704195 )
+mesh = SubResource( 10 )
+
+[node name="Brick7" type="MeshInstance" parent="MeshInstance/MeshInstance"]
+transform = Transform( 0.253218, -0.952998, 0.166359, 0, 0.171964, 0.985103, -0.967409, -0.249446, 0.0435442, 0.974317, 1.01087, 0.207134 )
+mesh = SubResource( 10 )
+
+[node name="OmniLight" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.925933, 0 )
+light_color = Color( 0.933333, 0.639216, 0.298039, 1 )
+light_energy = 3.175
+shadow_enabled = true
+
+[node name="RotationSphere" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 0 )
+
+[node name="Sphere" parent="RotationSphere" instance=ExtResource( 3 )]
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="RotationSphere"]
+autoplay = "play"
+anims/RESET = SubResource( 7 )
+anims/play = SubResource( 8 )
+
+[node name="Fire" parent="." instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0769675, 0 )
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( 0.70363, 0.44755, -0.551909, 0, 0.776717, 0.629849, 0.710566, -0.443181, 0.546522, -3.27033, 3.1754, 2.76192 )
+current = true
+
+[node name="GUI" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="GUI"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -109.0
+margin_right = 147.0
+color = Color( 0, 0, 0, 0.596078 )
+
+[node name="ButtonBack" type="Button" parent="GUI/ColorRect"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -46.5
+margin_top = -32.5
+margin_right = 46.5
+margin_bottom = 32.5
+theme = ExtResource( 2 )
+text = "Назад"
+
+[connection signal="pressed" from="GUI/ColorRect/ButtonBack" to="." method="_on_ButtonBack_pressed"]

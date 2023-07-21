@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=2]
+
+[sub_resource type="SpatialMaterial" id=10]
+vertex_color_use_as_albedo = true
+albedo_color = Color( 0.0745098, 0.976471, 0.968627, 1 )
+metallic = 0.36
+roughness = 0.82
+
+[sub_resource type="SphereMesh" id=6]
+material = SubResource( 10 )
+radius = 0.5
+height = 1.0
+radial_segments = 32
+rings = 16
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.61039, 1 )
+colors = PoolColorArray( 1, 1, 1, 1, 1, 1, 1, 0.741176 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+gravity = Vector3( 0, 0, 0 )
+scale_curve = SubResource( 8 )
+color_ramp = SubResource( 12 )
+
+[node name="Sphere" type="MeshInstance"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.617488, 2.18842 )
+mesh = SubResource( 6 )
+skeleton = NodePath("../..")
+
+[node name="Particles" type="Particles" parent="."]
+amount = 120
+lifetime = 2.0
+local_coords = false
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 6 )

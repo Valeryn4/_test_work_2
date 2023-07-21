@@ -1,0 +1,165 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://content/gui/main_theme.theme" type="Theme" id=1]
+[ext_resource path="res://content/main_scene/main_scene.gd" type="Script" id=2]
+
+[node name="MainScene" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+focus_mode = 2
+theme = ExtResource( 1 )
+script = ExtResource( 2 )
+button_1_next_scene = "res://content/sphere_and_fire_scene/sphere_and_firce_scene.tscn"
+
+[node name="BG" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0.0952148, 0.111537, 0.152344, 1 )
+
+[node name="MarginContainer" type="MarginContainer" parent="BG"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BG/MarginContainer"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 1004.0
+margin_bottom = 580.0
+
+[node name="Header" type="Panel" parent="BG/MarginContainer/VBoxContainer"]
+margin_right = 984.0
+margin_bottom = 40.0
+rect_min_size = Vector2( 0, 40 )
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/MarginContainer/VBoxContainer/Header"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 5
+custom_constants/margin_top = 5
+custom_constants/margin_left = 5
+custom_constants/margin_bottom = 5
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BG/MarginContainer/VBoxContainer/Header/MarginContainer"]
+margin_left = 5.0
+margin_top = 5.0
+margin_right = 979.0
+margin_bottom = 35.0
+alignment = 2
+
+[node name="Label" type="Label" parent="BG/MarginContainer/VBoxContainer/Header/MarginContainer/HBoxContainer"]
+margin_left = 803.0
+margin_top = 1.0
+margin_right = 974.0
+margin_bottom = 28.0
+text = "Задание № 2, 3, 4.  "
+align = 2
+
+[node name="Body" type="Panel" parent="BG/MarginContainer/VBoxContainer"]
+margin_top = 44.0
+margin_right = 984.0
+margin_bottom = 560.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="BG/MarginContainer/VBoxContainer/Body"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+custom_constants/margin_right = 10
+custom_constants/margin_top = 10
+custom_constants/margin_left = 10
+custom_constants/margin_bottom = 10
+
+[node name="ColorRect" type="ColorRect" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer"]
+margin_left = 10.0
+margin_top = 10.0
+margin_right = 974.0
+margin_bottom = 506.0
+color = Color( 0.112122, 0.129194, 0.171875, 1 )
+
+[node name="GridContainerButtons" type="GridContainer" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect"]
+unique_name_in_owner = true
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -256.0
+margin_top = -232.0
+margin_right = 256.0
+margin_bottom = 234.0
+custom_constants/vseparation = 30
+custom_constants/hseparation = 30
+columns = 2
+
+[node name="ButtonRoot4" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
+margin_right = 241.0
+margin_bottom = 218.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot4"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 123, 103 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "№ 4"
+
+[node name="ButtonRoot1" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
+margin_left = 271.0
+margin_right = 512.0
+margin_bottom = 218.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button1" type="Button" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot1"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 121, 108 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "№ 1"
+
+[node name="ButtonRoot3" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
+margin_top = 248.0
+margin_right = 241.0
+margin_bottom = 466.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot3"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 121, 111 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "№ 3"
+
+[node name="ButtonRoot2" type="Control" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons"]
+margin_left = 271.0
+margin_top = 248.0
+margin_right = 512.0
+margin_bottom = 466.0
+rect_pivot_offset = Vector2( -430, -170 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot2"]
+unique_name_in_owner = true
+anchor_right = 1.0
+anchor_bottom = 1.0
+rect_pivot_offset = Vector2( 116, 107 )
+size_flags_horizontal = 3
+size_flags_vertical = 3
+text = "№ 2"
+
+[node name="TweenButtonsEffect" type="Tween" parent="."]
+
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot4/Button4" to="." method="_on_Button4_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot1/Button1" to="." method="_on_Button1_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot3/Button3" to="." method="_on_Button3_pressed"]
+[connection signal="pressed" from="BG/MarginContainer/VBoxContainer/Body/MarginContainer/ColorRect/GridContainerButtons/ButtonRoot2/Button2" to="." method="_on_Button2_pressed"]

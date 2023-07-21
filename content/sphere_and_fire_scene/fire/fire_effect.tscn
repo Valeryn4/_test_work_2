@@ -1,0 +1,122 @@
+[gd_scene load_steps=16 format=2]
+
+[ext_resource path="res://content/sphere_and_fire_scene/fire/Smoke30Frames.png" type="Texture" id=1]
+[ext_resource path="res://content/sphere_and_fire_scene/fire/Fire.tres" type="Gradient" id=2]
+[ext_resource path="res://content/sphere_and_fire_scene/fire/SmokeGradient.tres" type="Gradient" id=3]
+
+[sub_resource type="GradientTexture" id=6]
+gradient = ExtResource( 2 )
+
+[sub_resource type="Curve" id=1]
+_data = [ Vector2( 0.00302115, 0 ), 0.0, 0.0, 0, 0, Vector2( 0.223565, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0.0749999 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=2]
+width = 256
+curve = SubResource( 1 )
+
+[sub_resource type="ParticlesMaterial" id=3]
+trail_divisor = 5
+emission_shape = 1
+emission_sphere_radius = 0.35
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 5.0
+initial_velocity_random = 0.1
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+linear_accel = 4.0
+linear_accel_random = 1.0
+angle = 720.0
+angle_random = 1.0
+scale_random = 0.8
+scale_curve = SubResource( 2 )
+color_ramp = SubResource( 6 )
+hue_variation = 0.05
+hue_variation_random = 1.0
+anim_speed = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=4]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=5]
+material = SubResource( 4 )
+
+[sub_resource type="GradientTexture" id=7]
+gradient = ExtResource( 3 )
+
+[sub_resource type="Curve" id=8]
+_data = [ Vector2( 0, 0.494318 ), 0.0, 0.0, 0, 0, Vector2( 1, 1 ), 0.0, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=9]
+curve = SubResource( 8 )
+
+[sub_resource type="ParticlesMaterial" id=10]
+emission_shape = 1
+emission_sphere_radius = 0.4
+direction = Vector3( 0, 1, 0 )
+spread = 0.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 1.0
+initial_velocity_random = 0.5
+angular_velocity = 40.0
+angular_velocity_random = 1.0
+linear_accel = 2.0
+linear_accel_random = 1.0
+radial_accel = 0.2
+radial_accel_random = 1.0
+angle = 360.0
+angle_random = 1.0
+scale = 2.0
+scale_random = 1.0
+scale_curve = SubResource( 9 )
+color_ramp = SubResource( 7 )
+hue_variation = 0.05
+hue_variation_random = 1.0
+anim_speed = 1.0
+anim_offset = 1.0
+anim_offset_random = 1.0
+
+[sub_resource type="SpatialMaterial" id=11]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 6
+particles_anim_v_frames = 5
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="QuadMesh" id=12]
+material = SubResource( 11 )
+
+[node name="Fire" type="Spatial"]
+
+[node name="Fire" type="Particles" parent="."]
+amount = 120
+lifetime = 0.5
+randomness = 1.0
+local_coords = false
+draw_order = 2
+process_material = SubResource( 3 )
+draw_pass_1 = SubResource( 5 )
+
+[node name="Smoke" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.73412, 0 )
+amount = 50
+lifetime = 1.5
+randomness = 1.0
+local_coords = false
+draw_order = 2
+process_material = SubResource( 10 )
+draw_pass_1 = SubResource( 12 )
